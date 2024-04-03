@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
-	<meta
-		name="viewport"
-		content="width=device-width, initial-scale=1.0"
-	/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
 
 	<title>Registration Form</title>
@@ -24,8 +22,7 @@
 		.main {
 			background-color: #fff;
 			border-radius: 15px;
-			box-shadow: 0 0 20px
-				rgba(0, 0, 0, 0.2);
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 			padding: 20px;
 			width: 600px;
 		}
@@ -70,30 +67,121 @@
 <body>
 	<div class="main">
 		<h2 style="text-align: center;">Thông tin đăng ký thuê bao</h2>
-		<form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DH20000003bhm" method="POST">
+		<form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DH20000003bhm"
+			method="POST">
 			<input type=hidden name="oid" value="00DH20000003bhm">
-<input type=hidden name="retURL" value="http://test.com">
-			<label>Sản phẩm quan tâm</label><select  id="00NH200000BFYDD" name="00NH200000BFYDD" title="Sản phẩm quan tâm"><option value="">--None--</option><option value="Sim Vật lý">Sim Vật lý</option>
+			<input type=hidden name="retURL" value="http://test.com">
+			<input id="thanhpho" maxlength="20" name="state" size="20" type="hidden" />
+			<input id="quanhuyen" maxlength="40" name="city" size="20" type="hidden" />
+			<textarea id="xaphuong" name="street" hidden></textarea>
+			<input type="hidden" id="lead_source" name="lead_source" value="Web" />
+			<label>Sản phẩm quan tâm</label><select id="00NH200000BFYDD" name="00NH200000BFYDD"
+				title="Sản phẩm quan tâm">
+				<option value="">--None--</option>
+				<option value="Sim Vật lý">Sim Vật lý</option>
 				<option value="eSim">eSim</option>
 				<option value="Gói cước">Gói cước</option>
-				</select>
-			   <label for="first_name">Họ</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
-               <label for="last_name">Tên</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
-				<label for="phone">Số điện thoại</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
-				
-				<label>Số CMND/CCCD/Hộ chiếu</label><input  id="00NH200000BFYDS" maxlength="50" name="00NH200000BFYDS" size="20" type="text" /><br>
-				
-				<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
-				
-				<label for="state">Tỉnh/Thành phố</label><input  id="state" maxlength="20" name="state" size="20" type="text" /><br>
-				
-				<label for="city">Quận/Huyện</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
-				
-				<label for="street">Phường/Xã</label><textarea name="street" style="width: 600px;"></textarea><br>
+			</select>
+			<label for="last_name">Họ</label><input id="last_name" maxlength="80" name="last_name" size="20"
+				type="text" /><br>
+			<label for="first_name">Tên</label><input id="first_name" maxlength="40" name="first_name" size="20"
+				type="text" /><br>
+			
+			<label for="phone">Số điện thoại</label><input id="phone" maxlength="40" name="phone" size="20"
+				type="text" /><br>
 
-				<input type="submit" name="submit" style="width: 600px; margin-top: 20px; height: 50px; font-size: 20px; font-weight: 700; background-color: #4caf50;">
+			<label>Số CMND/CCCD/Hộ chiếu</label><input id="00NH200000BFYDS" maxlength="50" name="00NH200000BFYDS"
+				size="20" type="text" /><br>
+
+			<label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+			<div>
+				<select class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
+					<option value="" selected>Chọn tỉnh thành</option>
+				</select>
+				<select class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm">
+					<option value="" selected>Chọn quận huyện</option>
+				</select>
+				<select class="form-select form-select-sm" id="ward" aria-label=".form-select-sm">
+					<option value="" selected>Chọn phường xã</option>
+				</select>
+			</div>
+
+			<input type="submit" name="submit"
+				style="width: 600px; margin-top: 20px; height: 50px; font-size: 20px; font-weight: 700; background-color: #4caf50;">
 
 		</form>
 	</div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script>
+
+	function ChangeThanhPho() {
+
+	}
+
+	function ChangeQuanHuyen() {
+
+	}
+
+	function ChangeXaPhuong() {
+		var e = document.getElementById("xa");
+		var values = e.value;
+		document.getElementById('xaphuong').value = values;
+	}
+
+	var citis = document.getElementById("city");
+	var districts = document.getElementById("district");
+	var wards = document.getElementById("ward");
+	var Parameter = {
+		url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+		method: "GET",
+		responseType: "application/json",
+	};
+	var promise = axios(Parameter);
+	promise.then(function (result) {
+		renderCity(result.data);
+	});
+
+	function renderCity(data) {
+		for (const x of data) {
+			citis.options[citis.options.length] = new Option(x.Name, x.Id);
+		}
+		citis.onchange = function () {
+			let e = document.getElementById("city");
+			let values = e.value;
+			document.getElementById('thanhpho').value = values;
+			district.length = 1;
+			ward.length = 1;
+			if (this.value != "") {
+				const result = data.filter(n => n.Id === this.value);
+
+				for (const k of result[0].Districts) {
+					district.options[district.options.length] = new Option(k.Name, k.Id);
+				}
+			}
+		};
+		district.onchange = function () {
+			ward.length = 1;
+			let e = document.getElementById("district");
+			let values = e.value;
+			document.getElementById('quanhuyen').value = values;
+			const dataCity = data.filter((n) => n.Id === citis.value);
+			if (this.value != "") {
+				const dataWards = dataCity[0].Districts.filter(n => n.Id === this.value)[0].Wards;
+
+				for (const w of dataWards) {
+					wards.options[wards.options.length] = new Option(w.Name, w.Id);
+				}
+			}
+		};
+		ward.onchange = function () {
+			let e = document.getElementById("ward");
+			let values = e.value;
+			document.getElementById('xaphuong').value = values;
+		}
+
+	}
+</script>
+
 </html>
