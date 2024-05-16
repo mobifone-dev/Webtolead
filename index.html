@@ -22,13 +22,13 @@
 		.main {
 			background-color: #fff;
 			border-radius: 15px;
-			box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+			box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
 			padding: 20px;
 			width: 600px;
 		}
 
 		.main h2 {
-			color: #4caf50;
+			color: #000000d9;
 			margin-bottom: 20px;
 		}
 
@@ -36,7 +36,9 @@
 			display: block;
 			margin-bottom: 5px;
 			color: #555;
-			font-weight: bold;
+			font-weight: 700;
+			font-size: .875rem!important;
+			line-height:1.25rem!important;
 		}
 
 		input[type="text"],
@@ -51,22 +53,57 @@
 			border-radius: 5px;
 		}
 
-		button[type="submit"] {
+		input[type="submit"] {
 			padding: 15px;
 			border-radius: 10px;
 			border: none;
-			background-color: #4caf50;
-			color: white;
+			background-color: white;
+			color: #40a9ff;
 			cursor: pointer;
+			border: 1px solid #40a9ff;
 			width: 100%;
 			font-size: 16px;
 		}
+
+		.collapsible {
+			color: rgb(7, 7, 7);
+			cursor: pointer;
+			border: none;
+			text-align: left;
+			outline: none;
+			font-size: 15px;
+		  }
+
+		  .collapsible:after {
+			content: '\002B';
+			color: rgb(17, 10, 10);
+			font-weight: bold;
+			float: right;
+			margin-left: 5px;
+		  }
+
+		  .active:after {
+			content: "\2212";
+		  }
+
+
+
+		.content {
+			padding: 0 18px;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.2s ease-out;
+			background-color: #f1f1f1;
+		  }
+
 	</style>
 </head>
 
 <body>
 	<div class="main">
-		<h2 style="text-align: center;">Thông tin đăng ký thuê bao</h2>
+		<img src="../Webtolead/image/Logo.png" alt="Girl in a jacket" width="150" height="30">
+
+		<h2 style="text-align: center; font-weight: 700; font-size: 1.25rem; line-height:1.75rem ">Thông tin đăng ký thuê bao</h2>
 		<form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DH20000003bhm"
 			method="POST">
 			<input type=hidden name="oid" value="00DH20000003bhm">
@@ -77,41 +114,52 @@
 			<input type="hidden" id="lead_source" name="lead_source" value="Web" />
 			<label>Sản phẩm quan tâm</label><select id="00NH200000BFYDD" name="00NH200000BFYDD"
 				title="Sản phẩm quan tâm">
-				<option value="">--None--</option>
+				<option value="">--Chọn--</option>
 				<option value="Sim Vật lý">Sim Vật lý</option>
 				<option value="eSim">eSim</option>
 				<option value="Gói cước">Gói cước</option>
 			</select>
-			<label for="last_name">Họ</label><input id="last_name" maxlength="80" name="last_name" size="20"
-				type="text" /><br>
-			<label for="first_name">Tên</label><input id="first_name" maxlength="40" name="first_name" size="20"
-				type="text" /><br>
-			
+
+
 			<label for="phone">Số điện thoại</label><input id="phone" maxlength="40" name="phone" size="20"
 				type="text" /><br>
 
-			<label>Số CMND/CCCD/Hộ chiếu</label><input id="00NH200000BFYDS" maxlength="50" name="00NH200000BFYDS"
-				size="20" type="text" /><br>
-
 			<label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="text" /><br>
 
-			<div>
-				<select class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
-					<option value="" selected>Chọn tỉnh thành</option>
-				</select>
-				<select class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm">
-					<option value="" selected>Chọn quận huyện</option>
-				</select>
-				<select class="form-select form-select-sm" id="ward" aria-label=".form-select-sm">
-					<option value="" selected>Chọn phường xã</option>
-				</select>
+			<label class="collapsible">Các thông tin khác</label>
+			<div class="content">
+				<label for="last_name" style="margin-top:20px">Họ</label><input id="last_name" maxlength="80" name="last_name" size="20"
+					type="text" /><br>
+				<label for="first_name">Tên</label><input id="first_name" maxlength="40" name="first_name" size="20"
+					type="text" /><br>
+
+					<label for="lead_source">Nguồn</label>
+					<select  id="lead_source" name="lead_source">
+						<option value="">--Chọn--</option>
+						<option value="Cấp TCT">Cấp TCT</option>
+						<option value="Công ty Khu vực/Trung tâm">Công ty Khu vực/Trung tâm</option>
+						</select><br>
+				<div>
+					<label>Địa chỉ</label>
+					<select class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
+						<option value="" selected>--Chọn Tỉnh/Thành phố--</option>
+					</select>
+					<select class="form-select form-select-sm mb-3" id="district" aria-label=".form-select-sm">
+						<option value="" selected>--Chọn Quận/Huyện--</option>
+					</select>
+					<select class="form-select form-select-sm" id="ward" aria-label=".form-select-sm">
+						<option value="" selected>--Chọn Phường/Xã--</option>
+					</select>
+				</div>
+
+
 			</div>
 
 			<input type="submit" name="submit"
-				style="width: 600px; margin-top: 20px; height: 50px; font-size: 20px; font-weight: 700; background-color: #4caf50;">
+				style="width: 600px; margin-top: 20px; height: 50px; font-size: 20px; font-weight: 700;">
 
 		</form>
-	</div>
+</div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script>
@@ -182,6 +230,22 @@
 		}
 
 	}
+
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+		coll[i].addEventListener("click", function () {
+			this.classList.toggle("active");
+			var content = this.nextElementSibling;
+			if (content.style.maxHeight) {
+				content.style.maxHeight = null;
+			} else {
+				content.style.maxHeight = content.scrollHeight + "px";
+			}
+		});
+	}
+
 </script>
 
 </html>
