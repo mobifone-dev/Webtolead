@@ -37,8 +37,8 @@
 			margin-bottom: 5px;
 			color: #555;
 			font-weight: 700;
-			font-size: .875rem!important;
-			line-height:1.25rem!important;
+			font-size: .875rem !important;
+			line-height: 1.25rem !important;
 		}
 
 		input[type="text"],
@@ -72,19 +72,19 @@
 			text-align: left;
 			outline: none;
 			font-size: 15px;
-		  }
+		}
 
-		  .collapsible:after {
+		.collapsible:after {
 			content: '\002B';
 			color: rgb(17, 10, 10);
 			font-weight: bold;
 			float: right;
 			margin-left: 5px;
-		  }
+		}
 
-		  .active:after {
+		.active:after {
 			content: "\2212";
-		  }
+		}
 
 
 
@@ -94,8 +94,7 @@
 			overflow: hidden;
 			transition: max-height 0.2s ease-out;
 			background-color: #f1f1f1;
-		  }
-
+		}
 	</style>
 </head>
 
@@ -103,17 +102,30 @@
 	<div class="main">
 		<img src="../Webtolead/image/Logo.png" alt="Girl in a jacket" width="150" height="30">
 
-		<h2 style="text-align: center; font-weight: 700; font-size: 1.25rem; line-height:1.75rem ">Thông tin đăng ký thuê bao</h2>
+		<h2 style="text-align: center; font-weight: 700; font-size: 1.25rem; line-height:1.75rem ">Thông tin đăng ký
+			thuê bao</h2>
 		<form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DH20000003bhm"
 			method="POST">
 			<input type=hidden name="oid" value="00DH20000003bhm">
-			<input type=hidden name="retURL" value="https://flow-force-2116--mbfdev.sandbox.my.salesforce-sites.com/SuccessCreateLead">
+			<input type=hidden name="retURL"
+				value="https://flow-force-2116--mbfdev.sandbox.my.salesforce-sites.com/SuccessCreateLead">
 			<input id="thanhpho" maxlength="20" name="state" size="20" type="hidden" />
 			<input id="quanhuyen" maxlength="40" name="city" size="20" type="hidden" />
 			<textarea id="xaphuong" name="street" hidden></textarea>
-			<input  type="hidden" id="00NH200000BKKOK" name="00NH200000BKKOK" type="checkbox" value="1"/>
+			<input type="hidden" id="00NH200000BKKOK" name="00NH200000BKKOK" type="checkbox" value="1" />
+			<input id="lead_source" name="lead_source" type="hidden" value="Cấp TCT" />
 
 			<!--input type="hidden" id="lead_source" name="lead_source" value="Web" /-->
+
+
+			<label for="last_name">Họ</label><input id="last_name" maxlength="80" name="last_name" size="20"
+				type="text" /><br>
+			<label for="first_name">Tên</label><input id="first_name" maxlength="40" name="first_name" size="20"
+				type="text" /><br>
+
+			<label for="phone">Số điện thoại</label><input id="phone" maxlength="40" name="phone" size="20"
+				type="text" /><br>
+
 			<label>Sản phẩm quan tâm</label><select id="00NH200000BFYDD" name="00NH200000BFYDD"
 				title="Sản phẩm quan tâm">
 				<option value="">--Chọn--</option>
@@ -123,23 +135,18 @@
 			</select>
 
 
-			<label for="phone">Số điện thoại</label><input id="phone" maxlength="40" name="phone" size="20"
-				type="text" /><br>
-
-			<label for="email">Email</label><input id="email" maxlength="80" name="email" size="20" type="text" /><br>
-
 			<label class="collapsible">Các thông tin khác</label>
 			<div class="content">
-				<label for="last_name" style="margin-top:20px">Họ</label><input id="last_name" maxlength="80" name="last_name" size="20"
-					type="text" /><br>
-				<label for="first_name">Tên</label><input id="first_name" maxlength="40" name="first_name" size="20"
-					type="text" /><br>
 
-					<label for="lead_source">Nguồn</label>
+
+				<label for="email" style="margin-top:20px">Email</label><input id="email" maxlength="80" name="email"
+					size="20" type="text" /><br>
+
+				<!-- <label for="lead_source">Nguồn</label>
 					<select  id="lead_source" name="lead_source">
 						<option value="Cấp TCT">Cấp TCT</option>
 						<option value="Công ty Khu vực/Trung tâm">Công ty Khu vực/Trung tâm</option>
-						</select><br>
+						</select><br> -->
 				<div>
 					<label>Địa chỉ</label>
 					<select class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
@@ -152,15 +159,16 @@
 						<option value="" selected>--Chọn Phường/Xã--</option>
 					</select>
 				</div>
- 
+
 
 			</div>
 
 			<input type="submit" name="submit"
-				style="width: 600px; margin-top: 20px; height: 50px; font-size: 20px; font-weight: 700;" value="Đăng ký">
+				style="width: 600px; margin-top: 20px; height: 50px; font-size: 20px; font-weight: 700;"
+				value="Đăng ký">
 
 		</form>
-</div>
+	</div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script>
