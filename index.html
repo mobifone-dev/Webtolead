@@ -110,7 +110,7 @@
 				value="https://flow-force-2116--mbfdev.sandbox.my.salesforce-sites.com/SuccessCreateLead">
 			<input id="thanhpho" maxlength="20" name="state" size="20" type="hidden" />
 			<input id="quanhuyen" maxlength="40" name="city" size="20" type="hidden" />
-
+ 
 
 			<textarea id="xaphuong" name="street" hidden></textarea>
 
@@ -120,8 +120,8 @@
 
 			<input  id="company" maxlength="40" name="company" size="20" type="hidden"/>
 
-			
 
+ 
 
 			<label for="last_name">Họ</label><input id="last_name" maxlength="80" name="last_name" size="20"
 				type="text" onchange="changeHo()"/><br>
@@ -173,14 +173,14 @@
 	function changeHo() {
 		var lastname = document.getElementById("last_name");
 		var firstname = document.getElementById("first_name");
-		var values = lastname.value + firstname.value;
+		var values = lastname.value + ' ' + firstname.value;
 		document.getElementById('company').value = values;
 	}
 
 	function changeTen() {
 		var lastname = document.getElementById("last_name");
 		var firstname = document.getElementById("first_name");
-		var values = lastname.value + firstname.value;
+		var values = lastname.value + ' ' + firstname.value;
 		document.getElementById('company').value = values;
 	}
 
