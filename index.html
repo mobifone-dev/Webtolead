@@ -101,7 +101,6 @@
 <body>
 	<div class="main">
 		<img src="../Webtolead/image/Logo.png" alt="Girl in a jacket" width="150" height="30">
-
 		<h2 style="text-align: center; font-weight: 700; font-size: 1.25rem; line-height:1.75rem ">Thông tin đăng ký
 			thuê bao</h2>
 		<form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DH20000003bhm"
@@ -111,21 +110,25 @@
 				value="https://flow-force-2116--mbfdev.sandbox.my.salesforce-sites.com/SuccessCreateLead">
 			<input id="thanhpho" maxlength="20" name="state" size="20" type="hidden" />
 			<input id="quanhuyen" maxlength="40" name="city" size="20" type="hidden" />
+
+
 			<textarea id="xaphuong" name="street" hidden></textarea>
+
 			<input type="hidden" id="00NH200000BKKOK" name="00NH200000BKKOK" type="checkbox" value="1" />
+
 			<input id="lead_source" name="lead_source" type="hidden" value="Cấp TCT" />
 
-			<!--input type="hidden" id="lead_source" name="lead_source" value="Web" /-->
+			<input  id="company" maxlength="40" name="company" size="20" type="hidden"/>
+
+			
 
 
 			<label for="last_name">Họ</label><input id="last_name" maxlength="80" name="last_name" size="20"
-				type="text" /><br>
+				type="text" onchange="changeHo()"/><br>
 			<label for="first_name">Tên</label><input id="first_name" maxlength="40" name="first_name" size="20"
-				type="text" /><br>
-
+				type="text" onchange="changeTen()"/><br>
 			<label for="phone">Số điện thoại</label><input id="phone" maxlength="40" name="phone" size="20"
 				type="text" /><br>
-
 			<label>Sản phẩm quan tâm</label><select id="00NH200000BFYDD" name="00NH200000BFYDD"
 				title="Sản phẩm quan tâm">
 				<option value="">--Chọn--</option>
@@ -134,20 +137,10 @@
 				<option value="Gói cước">Gói cước</option>
 				<option value="Bộ hòa mạng">Bộ hòa mạng</option>
 			</select>
-
-
 			<label class="collapsible">Các thông tin khác</label>
 			<div class="content">
-
-
 				<label for="email" style="margin-top:20px">Email</label><input id="email" maxlength="80" name="email"
 					size="20" type="text" /><br>
-
-				<!-- <label for="lead_source">Nguồn</label>
-					<select  id="lead_source" name="lead_source">
-						<option value="Cấp TCT">Cấp TCT</option>
-						<option value="Công ty Khu vực/Trung tâm">Công ty Khu vực/Trung tâm</option>
-						</select><br> -->
 				<div>
 					<label>Địa chỉ</label>
 					<select class="form-select form-select-sm mb-3" id="city" aria-label=".form-select-sm">
@@ -160,14 +153,10 @@
 						<option value="" selected>--Chọn Phường/Xã--</option>
 					</select>
 				</div>
-
-
 			</div>
-
 			<input type="submit" name="submit"
 				style="width: 600px; margin-top: 20px; height: 50px; font-size: 20px; font-weight: 700;"
 				value="Đăng ký">
-
 		</form>
 	</div>
 </body>
@@ -180,6 +169,19 @@
 
 	function ChangeQuanHuyen() {
 
+	}
+	function changeHo() {
+		var lastname = document.getElementById("last_name");
+		var firstname = document.getElementById("first_name");
+		var values = lastname.value + firstname.value;
+		document.getElementById('company').value = values;
+	}
+
+	function changeTen() {
+		var lastname = document.getElementById("last_name");
+		var firstname = document.getElementById("first_name");
+		var values = lastname.value + firstname.value;
+		document.getElementById('company').value = values;
 	}
 
 	function ChangeXaPhuong() {
