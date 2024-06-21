@@ -116,7 +116,7 @@
 
 			<input type="hidden" id="00NH200000BKKOK" name="00NH200000BKKOK" type="checkbox" value="1" />
 
-			<input id="lead_source" name="lead_source" type="hidden" value="Cấp TCT" />
+			<input id="lead_source" name="lead_source" type="hidden" value="Công ty khu vực 1" />
 
 			<input  id="company" maxlength="40" name="company" size="20" type="hidden"/>
 
@@ -173,14 +173,14 @@
 	function changeHo() {
 		var lastname = document.getElementById("last_name");
 		var firstname = document.getElementById("first_name");
-		var values = lastname.value + firstname.value;
+		var values = lastname.value + ' ' + firstname.value;
 		document.getElementById('company').value = values;
 	}
 
 	function changeTen() {
 		var lastname = document.getElementById("last_name");
 		var firstname = document.getElementById("first_name");
-		var values = lastname.value + firstname.value;
+		var values = lastname.value + ' ' + firstname.value;
 		document.getElementById('company').value = values;
 	}
 
