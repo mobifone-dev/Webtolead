@@ -105,33 +105,46 @@
 			thuê bao</h2>
 		<form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DH20000003bhm"
 			method="POST">
-			<input type=hidden name="oid" value="00DH20000003bhm"> 
+			<input type=hidden name="oid" value="00DH20000003bhm">
 			<input type=hidden name="retURL"
 				value="https://flow-force-2116--mbfdev.sandbox.my.salesforce-sites.com/SuccessCreateLead">
 			<input id="thanhpho" maxlength="20" name="state" size="20" type="hidden" />
-			<input id="quanhuyen" maxlength="40" name="city" size="20" type="hidden" /> 
+			<input id="quanhuyen" maxlength="40" name="city" size="20" type="hidden" />
 			<textarea id="xaphuong" name="street" hidden></textarea>
 			<input type="hidden" id="00NH200000BKKOK" name="00NH200000BKKOK" type="checkbox" value="1" />
-			<input id="lead_source" name="lead_source" type="hidden" value="Cấp TCT" /> 
-			<input  id="00NH200000BbVLN" maxlength="255" name="00NH200000BbVLN" size="20" type="hidden" value="Web chọn số"/><br>
-			<input  id="company" maxlength="40" name="company" size="20" type="hidden"/>  
+			<input id="lead_source" name="lead_source" type="hidden" value="Cấp TCT" />
+			<input id="00NH200000BbVLN" maxlength="255" name="00NH200000BbVLN" size="20" type="hidden"
+				value="Web chọn số" /><br>
+			<input id="company" maxlength="40" name="company" size="20" type="hidden" />
 
 
- 
 
-			<label for="last_name">Họ</label><input id="last_name" maxlength="80" name="last_name" size="20"
-				type="text" onchange="changeHo()"/><br>
+
+			<label for="last_name">Họ</label><input id="last_name" maxlength="80" name="last_name" size="20" type="text"
+				onchange="changeHo()" /><br>
 			<label for="first_name">Tên</label><input id="first_name" maxlength="40" name="first_name" size="20"
-				type="text" onchange="changeTen()"/><br>
+				type="text" onchange="changeTen()" /><br>
 			<label for="phone">Số điện thoại</label><input id="phone" maxlength="40" name="phone" size="20"
 				type="text" /><br>
 			<label>Sản phẩm quan tâm</label><select id="00NH200000BFYDD" name="00NH200000BFYDD"
 				title="Sản phẩm quan tâm">
 				<option value="">--Chọn--</option>
-				<option value="Sim Vật lý">Sim Vật lý</option>
-				<option value="eSim">eSim</option>
-				<option value="Gói cước">Gói cước</option>
-				<option value="Bộ hòa mạng">Bộ hòa mạng</option>
+				<option value="Không gian hiện hữu_SPDV phần cứng">Không gian hiện hữu_SPDV phần cứng</option>
+				<option value="Không gian mới_SPDV phần cứng">Không gian mới_SPDV phần cứng</option>
+				<option value="Không gian hiện hữu_SPDV phần mềm">Không gian hiện hữu_SPDV phần mềm</option>
+				<option value="Không gian mới_SPDV phần mềm">Không gian mới_SPDV phần mềm</option>
+				<option value="Không gian hiện hữu_DV kênh thuê riêng, BRCĐ">Không gian hiện hữu_DV kênh thuê riêng,
+					BRCĐ</option>
+				<option value="Không gian hiện hữu_DV liên quan thuê bao">Không gian hiện hữu_DV liên quan thuê bao
+				</option>
+				<option value="Không gian hiện hữu_DV kết nối, truy cập Internet (Data)">Không gian hiện hữu_DV kết nối,
+					truy cập Internet (Data)</option>
+				<option value="Không gian mới_DV điện toán đám mây">Không gian mới_DV điện toán đám mây</option>
+				<option value="Không gian mới_SPDV nội dung số">Không gian mới_SPDV nội dung số</option>
+				<option value="Không gian hiện hữu_DV nội dung số truyền thống">Không gian hiện hữu_DV nội dung số
+					truyền thống</option>
+				<option value="Không gian mới_Khác">Không gian mới_Khác</option>
+				<option value="Không gian hiện hữu_Khác">Không gian hiện hữu_Khác</option>
 			</select>
 			<label class="collapsible">Các thông tin khác</label>
 			<div class="content">
